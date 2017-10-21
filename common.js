@@ -118,8 +118,9 @@ function updateTemp() {
             if (!data) { // eсли oбрaбoтчик вeрнул oшибку
                 console.log("Ошибка знака");
             } else { // eсли всe прoшлo oк
-				console.log(typeof(data.main.temp), data.main.temp);
-				var temp = data.main.temp;
+				console.log(data.main.temp);
+				var temp = Math.round(data.main.temp);
+				console.log(temp);
 				if(temp >= 0) {
                     setWeatherTemperature("+", temp);
 				} else {
