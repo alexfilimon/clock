@@ -1,0 +1,676 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+	font-family: 'visitor2';
+	src: url('fonts/visitor2.eot');
+	src: local('visitor2'), url('fonts/visitor2.woff') format('woff'), url('fonts/visitor2.ttf') format('truetype');
+}
+
+body{
+	font-family: 'visitor2' !important;
+	background-color: #000;
+	color: #00fe00;
+	font-size: 20px;
+}
+.wrap{
+	text-align: center;
+}
+.clock{
+	padding: 20px;
+	display: inline-block;
+	min-width: 100px;
+	min-height: 100px;
+	font-size: 0;
+	/*transform: skewX(-5deg);*/
+}
+.clock .digit{
+	display: inline-block;
+	width: 93px;
+	height: 170px;
+	margin: 10px;
+	position: relative;
+}
+.clock .digit > div{
+	position: absolute;
+	background-color: #00fe00;
+	border-color: #00fe00;
+	opacity: .15;
+	transition: all .4s ease;
+}
+.clock .digit > div:after,
+.clock .digit > div:before{
+	content: "";
+	position: absolute;
+	border: 8.5px solid transparent;
+	width: 0;
+	height: 0;
+	transition: all .4s ease;
+}
+
+.clock .dots{
+	width: 20px;
+	display: inline-block;
+	height: 170px;
+	vertical-align: 10px;
+	position: relative;
+}
+.clock .dots:before,
+.clock .dots:after{
+	content: "";
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	background-color: #00fe00;
+	left: 2.5px;
+	opacity: .15;
+	transition: all .4s ease;
+}
+.clock .dots:before{
+	top: 40px;
+}
+.clock .dots:after{
+	bottom: 40px;
+}
+.clock .dots.active:before,
+.clock .dots.active:after{
+	opacity: 1;
+}
+
+
+/*----D1----*/
+.clock .digit > .d1{
+	height: 17px;
+	width: 53px;
+	top: 0;
+	left: 50%;
+	margin-left: -26.5px;
+}
+.clock .digit > .d1:before{
+	border-right-color: inherit;
+	border-width: 8.5px 8.5px 8.5px 0;
+	left: -8.5px;
+}
+.clock .digit > .d1:after{
+	border-left-color: inherit;
+	border-width: 8.5px 0 8.5px 8.5px;
+	right: -8.5px;
+}
+/*----D2----*/
+.clock .digit > .d2{
+	height: 17px;
+	width: 53px;
+	top: 50%;
+	margin-top: -8.5px;
+	left: 50%;
+	margin-left: -26.5px;
+}
+.clock .digit > .d2:before{
+	border-right-color: inherit;
+	border-width: 8.5px 8.5px 8.5px 0;
+	left: -8.5px;
+}
+.clock .digit > .d2:after{
+	border-left-color: inherit;
+	border-width: 8.5px 0 8.5px 8.5px;
+	right: -8.5px;
+}
+/*----D3----*/
+.clock .digit > .d3{
+	height: 17px;
+	width: 53px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -26.5px;
+}
+.clock .digit > .d3:before{
+	border-right-color: inherit;
+	border-width: 8.5px 8.5px 8.5px 0;
+	left: -8.5px;
+}
+.clock .digit > .d3:after{
+	border-left-color: inherit;
+	border-width: 8.5px 0 8.5px 8.5px;
+	right: -8.5px;
+}
+/*----D4----*/
+.clock .digit > .d4{
+	height: 53px;
+	width: 17px;
+	left: 0;
+	top: 20.3px;
+}
+.clock .digit > .d4:before{
+	border-bottom-color: inherit;
+	border-width: 0 8.5px 8.5px 8.5px;
+	top: -8.5px;
+	left: 0;
+}
+.clock .digit > .d4:after{
+	border-top-color: inherit;
+	border-width: 8.5px 8.5px 0 8.5px;
+	bottom: -8.5px;
+	left: 0;
+}
+/*----D5----*/
+.clock .digit > .d5{
+	height: 53px;
+	width: 17px;
+	right: 0;
+	top: 20.3px;
+}
+.clock .digit > .d5:before{
+	border-bottom-color: inherit;
+	border-width: 0 8.5px 8.5px 8.5px;
+	top: -8.5px;
+	right: 0;
+}
+.clock .digit > .d5:after{
+	border-top-color: inherit;
+	border-width: 8.5px 8.5px 0 8.5px;
+	bottom: -8.5px;
+	right: 0;
+}
+/*----D6----*/
+.clock .digit > .d6{
+	height: 53px;
+	width: 17px;
+	left: 0;
+	bottom: 20.3px;
+}
+.clock .digit > .d6:before{
+	border-bottom-color: inherit;
+	border-width: 0 8.5px 8.5px 8.5px;
+	top: -8.5px;
+	left: 0;
+}
+.clock .digit > .d6:after{
+	border-top-color: inherit;
+	border-width: 8.5px 8.5px 0 8.5px;
+	bottom: -8.5px;
+	left: 0;
+}
+/*----D7----*/
+.clock .digit > .d7{
+	height: 53px;
+	width: 17px;
+	right: 0;
+	bottom: 20.3px;
+}
+.clock .digit > .d7:before{
+	border-bottom-color: inherit;
+	border-width: 0 8.5px 8.5px 8.5px;
+	top: -8.5px;
+	right: 0;
+}
+.clock .digit > .d7:after{
+	border-top-color: inherit;
+	border-width: 8.5px 8.5px 0 8.5px;
+	bottom: -8.5px;
+	right: 0;
+}
+
+
+
+/*----DIGITS------
+-----------------*/
+.clock .digit.one .d5,
+.clock .digit.one .d7{
+	opacity: 1;
+}
+
+.clock .digit.two .d1,
+.clock .digit.two .d2,
+.clock .digit.two .d3,
+.clock .digit.two .d5,
+.clock .digit.two .d6{
+	opacity: 1;
+}
+
+.clock .digit.three .d1,
+.clock .digit.three .d2,
+.clock .digit.three .d3,
+.clock .digit.three .d5,
+.clock .digit.three .d7{
+	opacity: 1;
+}
+
+.clock .digit.four .d2,
+.clock .digit.four .d4,
+.clock .digit.four .d5,
+.clock .digit.four .d7{
+	opacity: 1;
+}
+
+.clock .digit.five .d1,
+.clock .digit.five .d2,
+.clock .digit.five .d3,
+.clock .digit.five .d4,
+.clock .digit.five .d7{
+	opacity: 1;
+}
+
+.clock .digit.six .d1,
+.clock .digit.six .d2,
+.clock .digit.six .d3,
+.clock .digit.six .d4,
+.clock .digit.six .d6,
+.clock .digit.six .d7{
+	opacity: 1;
+}
+
+.clock .digit.seven .d1,
+.clock .digit.seven .d5,
+.clock .digit.seven .d7{
+	opacity: 1;
+}
+
+.clock .digit.eight .d1,
+.clock .digit.eight .d2,
+.clock .digit.eight .d3,
+.clock .digit.eight .d4,
+.clock .digit.eight .d5,
+.clock .digit.eight .d6,
+.clock .digit.eight .d7{
+	opacity: 1;
+}
+
+.clock .digit.nine .d1,
+.clock .digit.nine .d2,
+.clock .digit.nine .d3,
+.clock .digit.nine .d4,
+.clock .digit.nine .d5,
+.clock .digit.nine .d7{
+	opacity: 1;
+}
+
+.clock .digit.zero .d1,
+.clock .digit.zero .d3,
+.clock .digit.zero .d4,
+.clock .digit.zero .d5,
+.clock .digit.zero .d6,
+.clock .digit.zero .d7{
+	opacity: 1;
+}
+
+
+
+
+
+/*---------------
+-----DISPLAY-----
+----------------*/
+.clock .display{
+	font-size: 35px;
+}
+.clock .display > div{
+	display: inline-block;
+	margin: 20px;
+	opacity: .15;
+	transition: all .4s ease;
+}
+.clock .display > div.active{
+	opacity: 1;
+}
+.clock .ampm{
+	font-size: 35px;
+}
+.clock .ampm > div{
+	display: inline-block;
+	margin: 20px;
+	opacity: .15;
+	transition: all .4s ease;
+}
+.clock .ampm > div.active{
+	opacity: 1;
+}
+
+
+/*------------------
+-------WEATHER------
+--------------------*/
+.clock .weather{
+	margin-top: 30px;
+}
+.clock .weather .text{
+	font-size: 70px;
+	margin-right: 20px;
+}
+.clock .weather .measures{
+	font-size: 50px;
+	margin-left: 30px;
+}
+.clock .weather .measures .fahrenheit{
+	opacity: 0.15;
+}
+.clock .weather .measures .small{
+	font-size: 30px;
+	display: inline;
+	vertical-align: top;
+}
+
+.clock .weather .sign,
+.clock .weather .digit-small,
+.clock .weather .text,
+.clock .weather .measures{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+} 
+.clock .weather .sign,
+.clock .weather .digit-small{
+	width: 31px;
+	height: 57px;
+	margin: 5px;
+}
+
+/*----SIGN-----*/
+.clock .weather .sign{
+	/*opacity: .15;*/
+}
+.clock .weather .sign .horizontal:before,
+.clock .weather .sign .horizontal:after,
+.clock .weather .sign .vertical:before,
+.clock .weather .sign .vertical:after{
+	content: "";
+	position: absolute;
+	border: 2.5px solid transparent;
+	width: 0;
+	height: 0;
+}
+
+
+
+.clock .weather .sign .horizontal,
+.clock .weather .sign .vertical{
+	position: absolute;
+	border-color: #00fe00;
+	opacity: 0.15;
+	transition: all .4s ease;
+}
+.clock .weather .sign .horizontal{
+	height: 5px;
+	width: 20px;
+	background-color: #00fe00;
+	top: 50%;
+	margin-top: -2.5px;
+	left: 50%;
+	margin-left: -10px;
+}
+.clock .weather .sign .horizontal:before{
+	left: -2.5px;
+	border-width: 2.5px 2.5px 2.5px 0;
+	border-right-color: #00fe00;
+}
+.clock .weather .sign .horizontal:after{
+	right: -2.5px;
+	border-width: 2.5px 0 2.5px 2.5px;
+	border-left-color: #00fe00;
+}
+.clock .weather .sign .vertical{
+	height: 20px;
+	width: 5px;
+	background-color: #00fe00;
+	top: 50%;
+	margin-top: -10px;
+	left: 50%;
+	margin-left: -2.5px;
+}
+.clock .weather .sign .vertical:before{
+	top: -2.5px;
+	left: 0;
+	border-width: 0 2.5px 2.5px 2.5px;
+	border-bottom-color: #00fe00;
+}
+.clock .weather .sign .vertical:after{
+	bottom: -2.5px;
+	left: 0;
+	border-width: 2.5px 2.5px 0 2.5px;
+	border-top-color: #00fe00;
+}
+
+.clock .weather .sign.minus .horizontal{
+	opacity: 1;
+}
+.clock .weather .sign.plus .horizontal,
+.clock .weather .sign.plus .vertical{
+	opacity: 1;
+}
+
+
+
+/*-----------------
+----DIGIT SMALL----
+-------------------*/
+.clock .digit-small > div{
+	position: absolute;
+	background-color: #00fe00;
+	border-color: #00fe00;
+	opacity: .15;
+	transition: all .4s ease;
+}
+.clock .digit-small > div:after,
+.clock .digit-small > div:before{
+	content: "";
+	position: absolute;
+	border: 3px solid transparent;
+	width: 0;
+	height: 0;
+	transition: all .4s ease;
+}
+
+/*----D1----*/
+.clock .digit-small > .d1{
+	height: 6px;
+	width: 16px;
+	top: 0;
+	left: 50%;
+	margin-left: -8px;
+}
+.clock .digit-small > .d1:before{
+	border-right-color: inherit;
+	border-width: 3px 3px 3px 0;
+	left: -3px;
+}
+.clock .digit-small > .d1:after{
+	border-left-color: inherit;
+	border-width: 3px 0 3px 3px;
+	right: -3px;
+}
+/*----D2----*/
+.clock .digit-small > .d2{
+	height: 6px;
+	width: 16px;
+	top: 50%;
+	margin-top: -3px;
+	left: 50%;
+	margin-left: -8px;
+}
+.clock .digit-small > .d2:before{
+	border-right-color: inherit;
+	border-width: 3px 3px 3px 0;
+	left: -3px;
+}
+.clock .digit-small > .d2:after{
+	border-left-color: inherit;
+	border-width: 3px 0 3px 3px;
+	right: -3px;
+}
+/*----D3----*/
+.clock .digit-small > .d3{
+	height: 6px;
+	width: 16px;
+	bottom: 0;
+	left: 50%;
+	margin-left: -8px;
+}
+.clock .digit-small > .d3:before{
+	border-right-color: inherit;
+	border-width: 3px 3px 3px 0;
+	left: -3px;
+}
+.clock .digit-small > .d3:after{
+	border-left-color: inherit;
+	border-width: 3px 0 3px 3px;
+	right: -3px;
+}
+/*----D4----*/
+.clock .digit-small > .d4{
+	height: 16px;
+	width: 6px;
+	left: 0;
+	top: 7.8px;
+}
+.clock .digit-small > .d4:before{
+	border-bottom-color: inherit;
+	border-width: 0 3px 3px 3px;
+	top: -3px;
+	left: 0;
+}
+.clock .digit-small > .d4:after{
+	border-top-color: inherit;
+	border-width: 3px 3px 0 3px;
+	bottom: -3px;
+	left: 0;
+}
+/*----D5----*/
+.clock .digit-small > .d5{
+	height: 16px;
+	width: 6px;
+	right: 0;
+	top: 7.8px;
+}
+.clock .digit-small > .d5:before{
+	border-bottom-color: inherit;
+	border-width: 0 3px 3px 3px;
+	top: -3px;
+	left: 0;
+}
+.clock .digit-small > .d5:after{
+	border-top-color: inherit;
+	border-width: 3px 3px 0 3px;
+	bottom: -3px;
+	left: 0;
+}
+/*----D6----*/
+.clock .digit-small > .d6{
+	height: 16px;
+	width: 6px;
+	left: 0;
+	bottom: 7.8px;
+}
+.clock .digit-small > .d6:before{
+	border-bottom-color: inherit;
+	border-width: 0 3px 3px 3px;
+	top: -3px;
+	left: 0;
+}
+.clock .digit-small > .d6:after{
+	border-top-color: inherit;
+	border-width: 3px 3px 0 3px;
+	bottom: -3px;
+	left: 0;
+}
+/*----D7----*/
+.clock .digit-small > .d7{
+	height: 16px;
+	width: 6px;
+	right: 0;
+	bottom: 7.8px;
+}
+.clock .digit-small > .d7:before{
+	border-bottom-color: inherit;
+	border-width: 0 3px 3px 3px;
+	top: -3px;
+	left: 0;
+}
+.clock .digit-small > .d7:after{
+	border-top-color: inherit;
+	border-width: 3px 3px 0 3px;
+	bottom: -3px;
+	left: 0;
+}
+
+.clock .digit-small.zero > .d1,
+.clock .digit-small.zero > .d3,
+.clock .digit-small.zero > .d4,
+.clock .digit-small.zero > .d5,
+.clock .digit-small.zero > .d6,
+.clock .digit-small.zero > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.one > .d5,
+.clock .digit-small.one > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.two > .d1,
+.clock .digit-small.two > .d2,
+.clock .digit-small.two > .d3,
+.clock .digit-small.two > .d5,
+.clock .digit-small.two > .d6{
+	opacity: 1;
+}
+
+.clock .digit-small.three > .d1,
+.clock .digit-small.three > .d2,
+.clock .digit-small.three > .d3,
+.clock .digit-small.three > .d5,
+.clock .digit-small.three > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.four > .d2,
+.clock .digit-small.four > .d4,
+.clock .digit-small.four > .d5,
+.clock .digit-small.four > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.five > .d1,
+.clock .digit-small.five > .d2,
+.clock .digit-small.five > .d3,
+.clock .digit-small.five > .d4,
+.clock .digit-small.five > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.six > .d1,
+.clock .digit-small.six > .d2,
+.clock .digit-small.six > .d3,
+.clock .digit-small.six > .d4,
+.clock .digit-small.six > .d6,
+.clock .digit-small.six > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.seven > .d1,
+.clock .digit-small.seven > .d5,
+.clock .digit-small.seven > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.eight > .d1,
+.clock .digit-small.eight > .d2,
+.clock .digit-small.eight > .d3,
+.clock .digit-small.eight > .d4,
+.clock .digit-small.eight > .d5,
+.clock .digit-small.eight > .d6,
+.clock .digit-small.eight > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.nine > .d1,
+.clock .digit-small.nine > .d2,
+.clock .digit-small.nine > .d3,
+.clock .digit-small.nine > .d4,
+.clock .digit-small.nine > .d5,
+.clock .digit-small.nine > .d7{
+	opacity: 1;
+}
+
+.clock .digit-small.minus > .d2{
+	opacity: 1;
+}
