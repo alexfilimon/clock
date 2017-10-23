@@ -1,3 +1,4 @@
+//dots
 setTimeout(function() {
 	setInterval(function() {
 		$(".clock .dots").toggleClass("active");
@@ -55,6 +56,7 @@ function clearDays() {
 	});
 };
 
+//clock every minute
 setInterval(function() {
 	clearClock();
 	var date = new Date();
@@ -63,24 +65,24 @@ setInterval(function() {
 	//console.log(date.getHours(),date.getMinutes(),date.getSeconds());
 }, 1000);
 
-function resize() {
-	var heightWindow = $(window).height();
-    var heightClock = $(".clock").height();
-    $(".clock").css("margin-top", (heightWindow/2-heightClock/2)+"px");
-};
-resize();
+//resize window
+	function resize() {
+		var heightWindow = $(window).height();
+		var heightClock = $(".clock").height();
+		$(".clock").css("margin-top", (heightWindow/2-heightClock/2)+"px");
+	};
+	resize();
+	window.onresize = resize;
 
-window.onresize = resize;
 
-
-
-var audio = new Audio(); // Создаём новый элемент Audio
-audio.src = 'music/alarm.mp3';
-
-function alarm() {
-	audio.pause();
-	audio.play(); // Автоматически запускаем
-};
+//
+// var audio = new Audio(); // Создаём новый элемент Audio
+// audio.src = 'music/alarm.mp3';
+//
+// function alarm() {
+// 	audio.pause();
+// 	audio.play(); // Автоматически запускаем
+// };
 
 
 function setWeatherMinus() {
@@ -92,13 +94,13 @@ function setWeatherPlus() {
 	$(".clock .weather .sign").addClass("plus");
 };
 
-function setWeatherTemperature(sign, temp) {
+function setWeatherTemperature(plus, temp) {
 	clearTemp();
 	$(".clock .weather .tempLeft").addClass(digits[parseInt(temp / 10)]);
 	$(".clock .weather .tempRight").addClass(digits[temp % 10]);
 
-	if (sign == "+") setWeatherPlus();
-	else if (sign == "-") setWeatherMinus();
+	if (plus) setWeatherPlus();
+	else setWeatherMinus();
 }; 
 
 function clearTemp() {
@@ -118,14 +120,16 @@ function updateTemp() {
             if (!data) { // eсли oбрaбoтчик вeрнул oшибку
                 console.log("Ошибка знака");
             } else { // eсли всe прoшлo oк
-				console.log(data.main.temp);
+				//console.log(data.main.temp);
 				var temp = Math.round(data.main.temp);
-				console.log(temp);
-				if(temp >= 0) {
-                    setWeatherTemperature("+", temp);
-				} else {
-                    setWeatherTemperature("-", temp);
-				}
+				var plus = (temp > 0);
+				//console.log(temp);
+                setWeatherTemperature(plus, temp);
+				// if(temp >= 0) {
+                 //    setWeatherTemperature(true, temp);
+				// } else {
+                 //    setWeatherTemperature(false, temp);
+				// }
                 // setWeatherTemperature(data['sign'], data['num']);
                 // var date = new Date();
                 // console.log(data['sign']+data['num']+" - updated: ", date);
