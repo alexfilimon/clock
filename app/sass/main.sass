@@ -1,0 +1,196 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+	&:before, &:after
+		-webkit-box-sizing: border-box
+		-moz-box-sizing: border-box
+		box-sizing: border-box
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+	background-color: #000
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+
+.digit
+	height: $digit-height
+	width: $digit-width
+	position: relative
+	display: inline-block
+	margin: 10px
+	text-align: left
+	.d
+		opacity: .1
+		transition: opacity .5s ease
+		&:after, &:before
+			content: ''
+			position: absolute
+			height: 0
+			width: 0
+			border: $digit-part-width/2 solid transparent
+	&.zero
+		.d1, .d3, .d4, .d5, .d6, .d7
+			opacity: 1
+	&.one
+		.d5, .d7
+			opacity: 1
+	&.two
+		.d1, .d2, .d3, .d5, .d6
+			opacity: 1
+	&.three
+		.d1, .d2, .d3, .d5, .d7
+			opacity: 1
+	&.four
+		.d2, .d4, .d5, .d7
+			opacity: 1
+	&.five
+		.d1, .d2, .d3, .d4, .d7
+			opacity: 1
+	&.six
+		.d1, .d2, .d3, .d4, .d6, .d7
+			opacity: 1
+	&.seven
+		.d1, .d5, .d7
+			opacity: 1
+	&.eight
+		.d1, .d2, .d3, .d4, .d5, .d6, .d7
+			opacity: 1
+	&.nine
+		.d1, .d2, .d3, .d4, .d5, .d7
+			opacity: 1
+
+	.d1, .d2, .d3
+		background-color: #fff
+		height: $digit-part-width
+		width: $digit-part-height
+		position: absolute
+		&:after
+			right: -$digit-part-width
+			border-left-color: white
+		&:before
+			left: -$digit-part-width
+			border-right-color: white
+		&.d1
+			left: $digit-part-top-bottom
+			top: 0
+		&.d2
+			left: $digit-part-top-bottom
+			top: $digit-part-vertical-center
+		&.d3
+			left: $digit-part-top-bottom
+			bottom: 0
+
+	.d4, .d5, .d6, .d7
+		background-color: #fff
+		height: $digit-part-height
+		width: $digit-part-width
+		position: absolute
+		&:after
+			bottom: -$digit-part-width
+			border-top-color: white
+		&:before
+			top: -$digit-part-width
+			border-bottom-color: white
+		&.d4
+			top: $digit-part-top-bottom
+			left: 0
+		&.d5
+			top: $digit-part-top-bottom
+			right: 0
+		&.d6
+			bottom: $digit-part-top-bottom
+			left: 0
+		&.d7
+			bottom: $digit-part-top-bottom
+			right: 0
+
+.pair-of-digits
+	//border: 1px solid green
+	display: inline-block
+.digits
+	text-align: center
+	display: inline-block
+	vertical-align: middle
+.content
+	height: 100vh
+	background-image: url("../img/back-3.jpg")
+	background-position: center center
+	background-size: cover
+	background-repeat: no-repeat
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		width: 100%
+		height: 100%
+		background-color: rgba(black, .41)
+		left: 0
+		top: 0
+.digits-wrap
+	height: 100%
+	text-align: center
+	&:before
+		content: ""
+		display: inline-block
+		vertical-align: middle
+		height: 100%
+.divider
+	display: inline-block
+	height: $digit-height
+	vertical-align: top
+	color: #fff
+	font-size: 150px
+	line-height: $digit-height
+	position: relative
+	opacity: .1
+	transition: opacity .5s ease
+	&.active
+		opacity: 1
+
+.button-fullscreen
+	position: absolute
+	bottom: 10px
+	left: 10px
+
+@import "media" // Всегда в конце
