@@ -42,7 +42,7 @@ body
 	min-width: 320px
 	position: relative
 	line-height: 1.65
-	font-family: $default-font
+	font-family: 'tekton', sans-serif
 	overflow-x: hidden
 	opacity: 1
 	background-color: #000
@@ -63,6 +63,8 @@ body
 	.d
 		opacity: .1
 		transition: opacity .5s ease
+		background-color: #fff
+		border: #fff
 		&:after, &:before
 			content: ''
 			position: absolute
@@ -101,16 +103,15 @@ body
 			opacity: 1
 
 	.d1, .d2, .d3
-		background-color: #fff
 		height: $digit-part-width
 		width: $digit-part-height
 		position: absolute
 		&:after
 			right: -$digit-part-width
-			border-left-color: white
+			border-left-color: inherit
 		&:before
 			left: -$digit-part-width
-			border-right-color: white
+			border-right-color: inherit
 		&.d1
 			left: $digit-part-top-bottom
 			top: 0
@@ -122,16 +123,15 @@ body
 			bottom: 0
 
 	.d4, .d5, .d6, .d7
-		background-color: #fff
 		height: $digit-part-height
 		width: $digit-part-width
 		position: absolute
 		&:after
 			bottom: -$digit-part-width
-			border-top-color: white
+			border-top-color: inherit
 		&:before
 			top: -$digit-part-width
-			border-bottom-color: white
+			border-bottom-color: inherit
 		&.d4
 			top: $digit-part-top-bottom
 			left: 0
@@ -154,7 +154,7 @@ body
 	vertical-align: middle
 .content
 	height: 100vh
-	background-image: url("../img/back-3.jpg")
+	background-image: url("../img/back-1.jpg")
 	background-position: center center
 	background-size: cover
 	background-repeat: no-repeat
@@ -185,12 +185,83 @@ body
 	position: relative
 	opacity: .1
 	transition: opacity .5s ease
+	font-family: "roboto-example", sans-serif
 	&.active
 		opacity: 1
 
-.button-fullscreen
+.button-clock
 	position: absolute
-	bottom: 10px
-	left: 10px
+	border: none
+	background: none
+	color: #fff
+	opacity: .1
+	transition: all .5s ease
+	font-size: 30px
+	outline: none
+	.fa
+		transition: transform .5s ease
+	&:hover
+		opacity: 1
+	&.button-fullscreen
+		bottom: 10px
+		left: 10px
+		&:hover
+			transform: scale(1.1, 1.1)
+	&.button-night-mode
+		top: 10px
+		left: 10px
+	&.button-settings
+		top: 10px
+		right: 10px
+		&:hover .fa
+			transform: rotate(45deg)
+	&.button-city
+		right: 12px
+		bottom: 2px
+		.fa
+			font-size: 20px
+			position: relative
+			bottom: 2px
+			margin-right: 10px
+			transition: all .5s ease
+		&:hover .fa
+			margin-right: 7px
+			transform: rotate(45deg)
+			
+.cursor-hider
+	width: 10px
+	height: 100%
+	position: absolute
+	bottom: 0
+	right: 0
+	cursor: none
+
+
+.wrap-weather-ampm
+	color: #fff
+	font-size: 50px
+	position: relative
+	display: inline-block
+	vertical-align: top
+	height: $digit-height
+	width: 50px
+	.weather
+		position: absolute
+		top: 15px
+		left: 20px
+		display: inline-block
+		line-height: 1em
+		width: 120px
+		text-align: center
+	.ampm
+		position: absolute
+		bottom: -15px
+		left: 20px
+		display: inline-block
+		line-height: 1em
+		width: 120px
+		text-align: center
+
+
 
 @import "media" // Всегда в конце

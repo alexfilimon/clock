@@ -32,7 +32,10 @@
 
 	<div class="wrap">
 		<div class="header">
-
+			<div id="locationField">
+				<input id="autocomplete" placeholder="Enter your address"
+					   onFocus="geolocate()" type="text"></input>
+			</div>
 		</div>
 		<div class="content">
 			<div class="digits-wrap">
@@ -99,17 +102,36 @@
 							<div class="d d7"></div>
 						</div>
 					</div>
+
+					<div class="wrap-weather-ampm">
+						<div class="weather">
+							<span class="weather-value"></span>
+						</div>
+						<div class="ampm">
+							PM
+						</div>
+					</div>
 				</div>
 			</div>
-			<button class="button-fullscreen js-button-fullscreen">FullScreen</button>
+			<button class="button-clock button-fullscreen js-button-fullscreen"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
+			<button class="button-clock button-settings"><i class="fa fa-cog" aria-hidden="true"></i></button>
+			<button class="button-clock button-night-mode"><i class="fa fa-moon-o" aria-hidden="true"></i></button>
+			<button class="button-clock button-city"><i class="fa fa-globe" aria-hidden="true"></i><span class="place-name"></span></button>
+			<div class="cursor-hider"></div>
 		</div>
 		<div class="footer">
 
 		</div>
 	</div>
-	
+
+
+
+
 	<link rel="stylesheet" href="css/main.min.css">
 	<script src="js/scripts.min.js"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV0yA7dN3iTGA23tC6cQ-a1pSZGFnUR-s&libraries=places&callback=initAutocomplete&language=en"
+			async defer></script>
 
 </body>
 </html>
